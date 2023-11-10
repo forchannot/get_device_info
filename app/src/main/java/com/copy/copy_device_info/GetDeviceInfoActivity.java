@@ -60,7 +60,7 @@ public class GetDeviceInfoActivity extends AppCompatActivity
 
                     @Override
                     public void onOAIDGetError(Exception error) {
-                        handleResult("当前设备不支持获取OAID");
+                        handleResult("error_" + random);
                     }
 
                     private void handleResult(String oaidResult) {
@@ -74,7 +74,7 @@ public class GetDeviceInfoActivity extends AppCompatActivity
                                         board,
                                         product,
                                         oaidResult);
-                        json.addProperty("oaid", "error_" + random);
+                        json.addProperty("oaid", oaidResult);
                         builder.setMessage(message)
                                 .setPositiveButton("点击复制", (dialog, which) -> copyToClipboard())
                                 .show();
