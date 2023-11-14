@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.gzuliyujiang.oaid.DeviceID;
+import com.github.gzuliyujiang.oaid.DeviceIdentifier;
 import com.github.gzuliyujiang.oaid.IGetter;
 import com.google.gson.JsonObject;
 
@@ -48,6 +49,7 @@ public class GetDeviceInfoActivity extends AppCompatActivity
         json.addProperty("deviceBoard", board);
         json.addProperty("deviceProduct", product);
         AlertDialog.Builder builder = new AlertDialog.Builder(GetDeviceInfoActivity.this);
+        DeviceIdentifier.getOAID(this);
         // 获取OAID/AAID，异步回调
         builder.setTitle("设备信息");
         DeviceID.getOAID(

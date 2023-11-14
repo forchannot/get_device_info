@@ -4,14 +4,14 @@ plugins {
 
 android {
     namespace = "com.copy.copy_device_info"
-    compileSdk = 33
+    compileSdk = 32
 
     defaultConfig {
         applicationId = "com.copy.copy_device_info"
         minSdk = 24
-        targetSdk = 33
-        versionCode = 110
-        versionName = "1.1"
+        targetSdk = 32
+        versionCode = 120
+        versionName = "1.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.code.gson:gson:2.10.1")
