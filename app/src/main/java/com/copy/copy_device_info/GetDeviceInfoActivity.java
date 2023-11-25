@@ -68,7 +68,8 @@ public class GetDeviceInfoActivity extends AppCompatActivity
                     private void handleResult(String oaidResult) {
                         String message =
                                 String.format(
-                                        "设备型号：%s\n系统版本：%s\n设备指纹：%s\n设备名：%s\n主板名：%s\n产品名：%s\nOAID：%s",
+                                        "设备型号：%s\n系统版本：%s\n设备指纹：%s\n设备名：%s\n主板名：%s\n产品名：%s\nOAID：%s" +
+                                                "\n温馨提示：如果OAID显示为error_******，请允许本应用获取虚拟身份ID，并稍等一会再重新点开此对话框，若仍为error，则代表你手机无法获取oaid",
                                         model,
                                         version,
                                         fingerprint,
