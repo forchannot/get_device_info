@@ -13,6 +13,7 @@ dependencyResolutionManagement {
         mavenCentral()
         maven("https://jitpack.io")
         maven("https://developer.huawei.com/repo/")
+        maven("https://developer.hihonor.com/repo")
     }
 }
 
