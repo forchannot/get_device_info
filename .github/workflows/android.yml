@@ -32,11 +32,18 @@ jobs:
         name: get-device.apk
         path: app/build/outputs/apk/debug/app-debug.apk
 
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v9
+    - name: Move and rename APK
+      run: mv app/build/outputs/apk/debug/app-debug.apk app/GetInfo.apk
+
+    - name: Checkout code
+      uses: actions/checkout@v2
       with:
-        author_name: github-actions[bot]
-        author_email: github-actions[bot]@users.noreply.github.com
-        message: ':wrench: 自动上传app'
-        add: |
-          'app/build/outputs/apk/debug/app-debug.apk'
+        ref: apk
+
+    - name: Commit and push APK
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add app/GetInfo.apk
+        git commit -m ":wrench: 自动上传app"
+        git push
