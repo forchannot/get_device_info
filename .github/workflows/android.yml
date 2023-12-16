@@ -26,10 +26,22 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: get-device.apk
+        path: app/build/outputs/apk/debug/app-debug.apk
+
     - name: Checkout branch
       uses: actions/checkout@v2
       with:
         ref: main
+        
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: get-device.apk
+        path: app/build/outputs/apk/debug
         
     - name: Commit changes
       uses: EndBug/add-and-commit@v9
@@ -39,11 +51,3 @@ jobs:
         pathspec_error_handling: ignore
         message: ':wrench: 自动上传app'
         add: app/build/outputs/apk/debug/app-debug.apk --force
-
-    - name: Upload artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: get-device.apk
-        path: app/build/outputs/apk/debug/app-debug.apk
-
-
