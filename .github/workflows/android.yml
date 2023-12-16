@@ -32,18 +32,18 @@ jobs:
         name: get-device.apk
         path: app/build/outputs/apk/debug/app-debug.apk
 
-    - name: Move and rename APK
-      run: mv app/build/outputs/apk/debug/app-debug.apk app/GetInfo.apk
+  upload:
+    needs: build
+    runs-on: ubuntu-latest
 
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        ref: apk
+    steps:
+    - name: Move and rename APK
+      run: mv app/build/outputs/apk/debug/app-debug.apk apk/GetInfo.apk
 
     - name: Commit and push APK
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add app/GetInfo.apk
+        git add apk/GetInfo.apk
         git commit -m ":wrench: 自动上传app"
         git push
