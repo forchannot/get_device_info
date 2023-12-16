@@ -42,5 +42,8 @@ jobs:
       with:
         author_name: github-actions[bot]
         author_email: github-actions[bot]@users.noreply.github.com
+        new_branch: apk
+        pathspec_error_handling: ignore
         message: ':wrench: 自动上传app'
         add: app/build/outputs/apk/debug/app-debug.apk --force
+        push: git push origin spk --set-upstream --force
