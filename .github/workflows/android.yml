@@ -5,10 +5,10 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -22,6 +22,7 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+      
     - name: Build with Gradle
       run: ./gradlew build
 
@@ -30,3 +31,23 @@ jobs:
       with:
         name: get-device.apk
         path: app/build/outputs/apk/debug/app-debug.apk
+
+    - name: Checkout branch
+      uses: actions/checkout@v2
+      with:
+        ref: main
+        
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: get-device.apk
+        path: app/build/outputs/apk/debug
+        
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v9
+      with:
+        author_name: github-actions[bot]
+        author_email: github-actions[bot]@users.noreply.github.com
+        pathspec_error_handling: ignore
+        message: ':wrench: 自动上传app'
+        add: app/build/outputs/apk/debug/app-debug.apk --force
