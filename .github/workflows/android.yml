@@ -27,7 +27,9 @@ jobs:
       run: ./gradlew build
 
     - name: Move and rename APK
-      run: cp app/build/outputs/apk/debug/app-debug.apk apk/GetInfo.apk
+      run: |
+        mkdir -p apk
+        cp app/build/outputs/apk/debug/app-debug.apk apk/GetInfo.apk
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
