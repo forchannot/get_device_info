@@ -43,4 +43,4 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git add apk/GetInfo.apk -f
         git commit -m ":wrench: 自动上传app"
-        git push
+        git push origin HEAD:main
