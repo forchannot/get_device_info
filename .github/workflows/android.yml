@@ -26,14 +26,14 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
+    - name: Move and rename APK
+      run: cp app/build/outputs/apk/debug/app-debug.apk apk/GetInfo.apk
+
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: get-device.apk
         path: app/build/outputs/apk/debug/app-debug.apk
-
-    - name: Move and rename APK
-      run: mv app/build/outputs/apk/debug/app-debug.apk apk/GetInfo.apk
 
     - name: Commit and push APK
       run: |
