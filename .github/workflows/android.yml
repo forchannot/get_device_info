@@ -32,11 +32,6 @@ jobs:
         name: get-device.apk
         path: app/build/outputs/apk/debug/app-debug.apk
 
-  upload:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Move and rename APK
       run: mv app/build/outputs/apk/debug/app-debug.apk apk/GetInfo.apk
 
