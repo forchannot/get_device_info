@@ -3,8 +3,16 @@ name: Android CI
 on:
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - README.md
+      - .gitignore
+      - LICENSE
   pull_request:
     branches: [ "main" ]
+    paths-ignore:
+      - README.md
+      - .gitignore
+      - LICENSE
   workflow_dispatch:
 
 jobs:
