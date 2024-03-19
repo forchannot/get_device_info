@@ -36,5 +36,5 @@ dependencies {
     implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.code.gson:gson:2.10.1")
-    implementation("com.github.gzu-liyujiang:Android_CN_OAID:4.2.8")
+    implementation("com.github.gzu-liyujiang:Android_CN_OAID:4.2.9")
 }
